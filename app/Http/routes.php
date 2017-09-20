@@ -54,7 +54,3 @@ Route::delete('/task/{id}', function ($id) {
 
     return redirect('/');
 });
-
-
-
-

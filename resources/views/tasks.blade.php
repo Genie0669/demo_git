@@ -52,8 +52,9 @@
 
                             <!-- 表頭 -->
                             <thead>
+                                <th>Id</th>
                                 <th>Task</th>
-                                <th>&nbsp;</th>
+                                <th>Action</th>
                             </thead>
 
                             <!-- 表身 -->
@@ -72,7 +73,8 @@
 
                                         <!-- 刪除按鈕 -->
                                         <td>
-                                            <form action="{{ url('task/'.$task->id) }}" method="POST">
+                                            <!-- <form action="{{ url('task/'.$task->id) }}" method="POST"> -->
+                                            <form action="task/{{ $task->id }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 

@@ -48,5 +48,17 @@ Route::post('/task', function (Request $request) {
             ->withErrors($validator);
     }
 
-    // 建立該任務...
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
+});
+
+Route::get('/', function () {
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
 });

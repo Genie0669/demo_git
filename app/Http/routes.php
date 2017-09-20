@@ -18,25 +18,16 @@ use Illuminate\Http\Request;
  * 顯示所有任務
  */
 Route::get('/', function () {
-    return view('tasks');
-});
+    $tasks = Task::orderBy('created_at', 'asc')->get();
 
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
+});
 
 /**
  * 增加新的任務
  */
-Route::post('/task', function (Request $request) {
-    //
-});
-
-/**
- * 刪除一個已有的任務
- */
-Route::delete('/task/{id}', function ($id) {
-    //
-});
-
-
 Route::post('/task', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
@@ -55,10 +46,15 @@ Route::post('/task', function (Request $request) {
     return redirect('/');
 });
 
-Route::get('/', function () {
-    $tasks = Task::orderBy('created_at', 'asc')->get();
+/**
+ * 刪除一個已有的任務
+ */
+Route::delete('/task/{id}', function ($id) {
+    Task::findOrFail($id)->delete();
 
-    return view('tasks', [
-        'tasks' => $tasks
-    ]);
+    return redirect('/');
 });
+
+
+
+

@@ -59,7 +59,7 @@ Route::delete('/task/{id}', function ($id) {
 Route::get('/index', 'TestController@index');
 Route::get('/create', 'TestController@create');
 Route::post('/store', 'TestController@store');
-Route::get('/{id}', 'TestController@show');
+Route::get('/show/{id}', 'TestController@show');
 Route::get('/destroy/{id}', 'TestController@destroy');
-Route::get('/{id}/edit', 'TestController@edit');
-Route::post('/{id}/update', 'TestController@update');
+Route::get('/edit/{id}', 'TestController@edit');
+Route::post('/update/{id}', 'TestController@update');

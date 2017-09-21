@@ -16,8 +16,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TaskRequest;
 
 // Authentication routes...
-Route::get('/', 'Auth\AuthController@getLogin');
-Route::post('/', 'Auth\AuthController@postLogin');
+Route::get('/auth/login', 'Auth\AuthController@getLogin');
+Route::post('/auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
@@ -26,7 +26,7 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 /**
  * 顯示所有任務
  */
-Route::get('/task', function () {
+Route::get('/', function () {
     if (Auth::check()) {
         $tasks = Task::orderBy('created_at', 'asc')->get();
 
@@ -34,7 +34,7 @@ Route::get('/task', function () {
             'tasks' => $tasks
         ]);
     } else {
-        return redirect('/');
+        return redirect('/auth/login');
     }
 
 });
@@ -57,7 +57,7 @@ Route::post('/task/create', function (TaskRequest $request) {
     $task->name = $request->name;
     $task->save();
 
-    return redirect('/task');
+    return redirect('/');
 });
 
 /**
@@ -66,7 +66,7 @@ Route::post('/task/create', function (TaskRequest $request) {
 Route::delete('/task/{id}', function ($id) {
     Task::findOrFail($id)->delete();
 
-    return redirect('/task');
+    return redirect('/');
 });
 
 

@@ -55,7 +55,9 @@ Route::delete('/task/{id}', function ($id) {
     return redirect('/');
 });
 
-
+/**
+ * TEST 相關任務
+ */
 Route::get('/index', 'TestController@index');
 Route::get('/create', 'TestController@create');
 Route::post('/store', 'TestController@store');

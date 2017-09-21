@@ -54,3 +54,12 @@ Route::delete('/task/{id}', function ($id) {
 
     return redirect('/');
 });
+
+
+Route::get('/index', 'TestController@index');
+Route::get('/create', 'TestController@create');
+Route::post('/store', 'TestController@store');
+Route::get('/{id}', 'TestController@show');
+Route::get('/destroy/{id}', 'TestController@destroy');
+Route::get('/{id}/edit', 'TestController@edit');
+Route::post('/{id}/update', 'TestController@update');

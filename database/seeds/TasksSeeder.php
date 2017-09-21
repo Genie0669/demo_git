@@ -11,12 +11,13 @@ class TasksSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create('zh_TW');
-
-        foreach(range(1,20) as $number) {
-            \App\Task::create([
-                'name' => $faker->name(),
-            ]);
-        }
+//        $faker = \Faker\Factory::create('zh_TW');
+//        foreach(range(1,20) as $number) {
+//            \App\Task::create([
+//                'name' => $faker->name(),
+//            ]);
+//        }
+        \App\Task::truncate();
+        factory(\App\Task::class, 10)->create();
     }
 }

@@ -19,3 +19,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Task::class, function (Faker\Generator $faker) {
+    $faker = \Faker\Factory::create('zh_TW');
+    return [
+        'name' => $faker->name,
+    ];
+});

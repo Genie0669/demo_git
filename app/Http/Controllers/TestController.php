@@ -11,8 +11,7 @@ class TestController extends Controller
 {
     public function index()
 	{
-	    // return view('index');
-	    $datas = \App\Test::get();
+	    $datas = \App\Test::orderBy('created_at', 'desc')->get();
 		return view('index', compact('datas'));
 	}
 

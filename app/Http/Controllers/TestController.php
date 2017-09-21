@@ -29,6 +29,10 @@ class TestController extends Controller
 	public function show($id)
 	{
 	    $data = \App\Test::find($id);
+	    if (is_null($data))
+        {
+            return redirect('/index');
+        }
 		return view('show', compact('data'));
 	}
 	

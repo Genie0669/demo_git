@@ -16,7 +16,7 @@
                     @include('common.errors')
 
                     <!-- New Task Form -->
-                    <form action="{{ url('task')}}" method="POST" class="form-horizontal">
+                    <form action="{{ url('/task/create')}}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- Task Name -->
@@ -54,6 +54,7 @@
                             <thead>
                                 <th>Id</th>
                                 <th>Task</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </thead>
 
@@ -69,6 +70,10 @@
                                         <!-- 任務名稱 -->
                                         <td class="table-text">
                                             <div>{{ $task->name }}</div>
+                                        </td>
+                                        <!-- 任務日期 -->
+                                        <td class="table-text">
+                                            <div>{{ $task->created_at->toDateString() }}</div>
                                         </td>
 
                                         <!-- 刪除按鈕 -->
@@ -88,6 +93,27 @@
                     </div>
                 </div>
             @endif
+
+        <!-- Logout -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Logout
+                </div>
+
+                <div class="panel-body">
+                <!-- Logout Form -->
+                    <form action="{{ url('auth/logout') }}" method="GET" class="form-horizontal">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-btn fa-sign-out"></i>Logout
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

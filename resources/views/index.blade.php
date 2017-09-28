@@ -9,6 +9,7 @@
   <p>新版本 1.1</p>
   <p>新功能 2.1</p>
   <p>Master 1.1</p>
+  <p>新版本 2.1</p>
 
 
   <a href="/create">新增</a><br /><hr><br />

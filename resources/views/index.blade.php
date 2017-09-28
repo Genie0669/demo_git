@@ -4,7 +4,10 @@
   <title>首頁</title>
 </head>
 <body>
+
   <p>新功能1.1</p>
+  <p>新版本1.1</p>
+
   <a href="/create">新增</a><br /><hr><br />
   @foreach($datas as $data)
 	姓名：{{ $data->name }}

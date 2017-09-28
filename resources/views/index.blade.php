@@ -5,8 +5,9 @@
 </head>
 <body>
 
-  <p>新功能1.1</p>
-  <p>新版本1.1</p>
+  <p>新功能 1.1</p>
+  <p>新版本 1.1</p>
+  <p>Master 1.1</p>
 
   <a href="/create">新增</a><br /><hr><br />
   @foreach($datas as $data)
